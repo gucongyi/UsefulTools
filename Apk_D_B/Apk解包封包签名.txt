@@ -1,0 +1,22 @@
+1.解包
+apktool d -f C:\Users\GU_PC\Desktop\Package\Test\LovinHouse_v2.2.9_taptap.apk -o C:\Users\GU_PC\Desktop\Package\Test\LovinHouse
+2.查看签名（CERT.RSA在解包后的文件夹）
+keytool -printcert -file C:\Users\GU_PC\Desktop\Package\Test\LovinHouse\original\META-INF\CERT.RSA
+3.修改文件（jadx反编译可以看到版本号之类）
+4.封包
+apktool b C:\Users\GU_PC\Desktop\Package\Test\LovinHouse -o C:\Users\GU_PC\Desktop\Package\Test\LovinHouse_v2.3.0_taptap.apk
+5.解开到新文件夹，重新查看签名，发现没有签名文件
+6.签名
+jarsigner -verbose -keystore C:\Users\GU_PC\Desktop\Package\Test\CCGame.keystore -signedjar C:\Users\GU_PC\Desktop\Package\Test\LovinHouse_v2.3.0_taptap_signed.apk C:\Users\GU_PC\Desktop\Package\Test\LovinHouse_v2.3.0_taptap.apk key
+Կ:
+key是别名
+下边输入别名密码即可
+ 
+6.签名后重新解开查看签名
+实测可以安装
+
+url:
+https://ibotpeaches.github.io/Apktool/install/
+https://ibotpeaches.github.io/Apktool/documentation/
+https://blog.csdn.net/zengfenliang/article/details/80765872
+https://blog.csdn.net/qq_25506203/article/details/80899521
